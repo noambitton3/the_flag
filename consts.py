@@ -1,3 +1,5 @@
-GREEN = (138, 201, 38)
+import pygame
+GREEN = (0, 200, 0)
 SCREEN_WIDTH = 1000
 SCREEN_LENGTH = 500
+BUSH_SIZE = (50, 50)
