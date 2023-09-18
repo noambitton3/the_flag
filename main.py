@@ -1,16 +1,17 @@
 from screen import *
+from game_field import *
 import pygame
 
 
 def main():
-    display_bushes()
+    screen = display_flag()
     running = True
     while running:
         # forloop through the event queue:
         for event in pygame.event.get():
             if event.type == pygame.K_KP_ENTER:
-                # action - boms exposure
-                a = 10
+                # action - bombs exposure
+                show_net(screen, SQUARE)
             elif event.type == pygame.K_UP:
                 # action - step up
                 a = 4

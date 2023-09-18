@@ -1,6 +1,6 @@
-import pygame
 from consts import *
 import random
+import pygame
 
 
 def create_screen():
@@ -27,5 +27,23 @@ def display_bushes():
         cord = (x, y)
         screen.blit(bush, cord)
         pygame.display.update()
+    return screen
+
+
+def create_flag(flag_width, flag_length):
+    flag_ = pygame.image.load("flag.png")
+    flag_size = (flag_width, flag_length)
+    flag = pygame.transform.scale(flag_, flag_size)
+    return flag
+
+
+def display_flag():
+    screen = display_bushes()
+    flag = create_flag(FLAG_WIDTH, FLAG_LENGTH)
+    x = SCREEN_WIDTH - FLAG_WIDTH
+    y = SCREEN_LENGTH - FLAG_LENGTH
+    cord = (x, y)
+    screen.blit(flag, cord)
+    pygame.display.update()
     return screen
 
