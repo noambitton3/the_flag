@@ -30,19 +30,3 @@ def display_bushes():
         pygame.display.update()
     return screen
 
-def create_flag(flag_width, flag_length):
-    flag_ = pygame.image.load("flag.png")
-    flag_size = (flag_width, flag_length)
-    flag = pygame.transform.scale(flag_, flag_size)
-    return flag
-
-
-def display_flag():
-    screen = display_bushes()
-    flag = create_flag(consts.FLAG_WIDTH, consts.FLAG_LENGTH)
-    x = consts.SCREEN_WIDTH - consts.FLAG_WIDTH
-    y = consts.SCREEN_LENGTH - consts.FLAG_LENGTH
-    cord = (x, y)
-    screen.blit(flag, cord)
-    pygame.display.update()
-    return screen
