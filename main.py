@@ -15,7 +15,7 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.K_KP_ENTER:
                 # action - bombs exposure
-                display_bomb(screen)
+                display_bomb(game_grid)
             elif event.type == pygame.K_UP:
                 # action - step up
                 move_up(pos_y)

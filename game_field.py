@@ -29,6 +29,22 @@ def show_net(screen, square):
     pygame.display.flip()
     return
 
+
+game_grid = []
+# created game grid matrix with 0
+
+
+def create_game_grid(matrix):
+    for row in range(25):
+        row_list = []
+        for col in range(50):
+            row_list.append(0)
+        matrix.append(row_list)
+    return matrix
+
+
+game_grid = create_game_grid(game_grid)
+
 # need to show also the bombs and the soldier at night.
 # also do not forget the time limit - just 1 second.
 
@@ -39,16 +55,23 @@ def create_bomb():
     return bomb
 
 
-def display_bomb(screen):
-    net_screen = show_net(screen, SQUARE)
-    bomb = create_bomb()
+def append_bomb(matrix):
     for i in range(20):
-        x = random.randint(0, 950)
-        y = random.randint(0, 450)
-        cord = (x, y)
-        net_screen.blit(bomb, cord)
-        pygame.display.update()
-    return net_screen
+        row = random.randint(0, 25)
+        col = random.randint(0, 50)
+        matrix[row][col] = "bomb"
+    return matrix
+
+
+def display_bomb(matrix, screen_):
+    net_screen = show_net(screen_, SQUARE)
+    for row in range(len(matrix)):
+        for col in range(len(matrix[row])):
+            cell = matrix[row][col]
+            if cell == "bomb":
+                a = 3
+
+
 
 
 
