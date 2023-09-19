@@ -1,6 +1,9 @@
-from soldier import *
-from game_field import *
 import random
+import pygame
+import consts
+from consts import *
+from game_field import *
+
 
 def create_screen():
     pygame.init()
@@ -28,28 +31,6 @@ def display_bushes():
         pygame.display.update()
     return screen
 
-
-def display_flag():
-    screen = display_bushes()
-    flag = create_flag(FLAG_WIDTH, FLAG_LENGTH)
-    x = SCREEN_WIDTH - FLAG_WIDTH
-    y = SCREEN_LENGTH - FLAG_LENGTH
-    cord = (x, y)
-    screen.blit(flag, cord)
-    pygame.display.update()
-    return screen
-
-
-def display_soldier():
-    screen_ = display_flag()
-    soldier = create_soldier(SOLDIER_WIDTH, SOLDIER_LENGTH)
-    # initial position
-    x = 0
-    y = 0
-    init_pos = (x, y)
-    screen_.blit(soldier, init_pos)
-    pygame.display.update()
-    return screen_
 
 
 

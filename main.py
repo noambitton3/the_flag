@@ -1,32 +1,38 @@
-from screen import *
-from soldier import *
 import pygame
+import game_field
+from game_field import *
+from screen import *
 from consts import *
-screen = display_soldier()
+import soldier
+screen = soldier.display_solider()
 
 
 def main():
     running = True
-    pos_x = 0
-    pos_y = 0
+    soldier_x = 0
+    soldier_y = 0
     while running:
         # forloop through the event queue:
         for event in pygame.event.get():
-            if event.type == pygame.K_KP_ENTER:
+            if event.type == pygame.K_SPACE:
                 # action - bombs exposure
-                show_net(screen, SQUARE)
+                display_bomb(screen)
             elif event.type == pygame.K_UP:
                 # action - step up
-                move_up(pos_y)
+                screen.move_up(soldier_y)
+                a = 5
             elif event.type == pygame.K_DOWN:
                 # action - step down
-                move_down(pos_y)
+                screen.move_down(soldier_y)
+                a = 8
             elif event.type == pygame.K_RIGHT:
                 # action - step right
-                move_right(pos_x)
+                screen.move_right(soldier_x)
+                a = 3
             elif event.type == pygame.K_LEFT:
                 # action - step left
-                move_left(pos_x)
+                screen.move_left(soldier_x)
+                a = 6
             elif event.type == pygame.QUIT:
                 running = False
 
