@@ -3,6 +3,7 @@ import pygame
 import consts
 from consts import *
 from game_field import *
+import soldier
 
 
 def create_screen():
@@ -32,6 +33,11 @@ def display_bushes():
     return screen
 
 
-
-
-
+def put_text(color, screen_):
+    x = 50
+    y = 30
+    font = pygame.font.Font('freesansbold.ttf', 14)
+    words = "Welcome to the Flag Game! Have fun!!!"
+    text = font.render(words, True, color)
+    screen_.blit(text, (x, y))
+    pygame.display.flip()

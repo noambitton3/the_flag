@@ -40,4 +40,3 @@ def move_left(soldier_x):
 def move_right(soldier_x):
     soldier_x -= 20
     return soldier_x
-

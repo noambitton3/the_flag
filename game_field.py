@@ -45,6 +45,7 @@ def show_net(screen_):
     pygame.display.flip()
     return black_screen
 
+
 # created game grid matrix with 0:
 # need to show also the bombs and the soldier at night.
 # also do not forget the time limit - just 1 second.
@@ -69,12 +70,26 @@ def create_bomb():
     return bomb
 
 
+# returns the matrix with the bombs
 def append_bomb(matrix):
     for i in range(20):
         row = random.randint(0, 25)
         col = random.randint(0, 50)
         matrix[row][col] = "bomb"
     return matrix
+
+
+# we had an idea to find the soldier's location with the matrix. it is not working as we expected.
+# def soldier_location(game_grid_):
+#     game_grid = append_bomb(game_grid_)
+#     for row in range(3):
+#         if row == 2:
+#             game_grid[row][0] = "L"
+#             game_grid[row][1] = "L"
+#         else:
+#             game_grid[row][0] = "B"
+#             game_grid[row][1] = "B"
+#     return game_grid
 
 
 def display_bomb(screen_):
@@ -89,25 +104,3 @@ def display_bomb(screen_):
                 bomb = create_bomb()
                 net_screen.blit(bomb, (x, y))
     return net_screen
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

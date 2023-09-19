@@ -4,10 +4,12 @@ from game_field import *
 from screen import *
 from consts import *
 import soldier
+
 screen = soldier.display_solider()
 
 
 def main():
+    put_text(consts.WHITE, screen)
     running = True
     soldier_x = 0
     soldier_y = 0
