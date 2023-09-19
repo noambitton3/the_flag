@@ -8,18 +8,6 @@ def create_soldier(soldier_width, soldier_length):
     return soldier
 
 
-def display_soldier(screen):
-    soldier = create_soldier(SOLDIER_WIDTH, SOLDIER_LENGTH)
-    # initial position
-    x = 0
-    y = 0
-    init_pos = (x, y)
-    screen.blit(soldier, init_pos)
-    pygame.display.update()
-    return screen
-
-
-# for every func need to display the new location of the soldier
 def move_up(soldier_y):
     soldier_y -= 20
     return soldier_y

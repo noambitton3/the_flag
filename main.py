@@ -1,12 +1,11 @@
 from screen import *
-from game_field import *
 from soldier import *
 import pygame
+from consts import *
+screen = display_soldier()
 
 
 def main():
-    screen = display_flag()
-    screen = display_soldier(screen)
     running = True
     pos_x = 0
     pos_y = 0
@@ -15,7 +14,7 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.K_KP_ENTER:
                 # action - bombs exposure
-                display_bomb(game_grid)
+                show_net(screen, SQUARE)
             elif event.type == pygame.K_UP:
                 # action - step up
                 move_up(pos_y)

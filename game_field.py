@@ -1,33 +1,25 @@
-from consts import *
-from screen import *
-
+from main import *
+from soldier import *
 
 def create_flag(flag_width, flag_length):
     flag_ = pygame.image.load("flag.png")
     flag_size = (flag_width, flag_length)
     flag = pygame.transform.scale(flag_, flag_size)
     return flag
-
-
-def display_flag():
-    screen = display_bushes()
-    flag = create_flag(FLAG_WIDTH, FLAG_LENGTH)
-    x = SCREEN_WIDTH - FLAG_WIDTH
-    y = SCREEN_LENGTH - FLAG_LENGTH
-    cord = (x, y)
-    screen.blit(flag, cord)
-    pygame.display.update()
-    return screen
-
-
 # supposed to show a net - there is a problem
-def show_net(screen, square):
+def show_net(screen_, square):
     for x in range(SCREEN_WIDTH):
         for y in range(SCREEN_LENGTH):
             block = pygame.Rect(x * square, y * square, square, square)
-            pygame.draw.rect(screen, GREEN, block, 1)
+            pygame.draw.rect(screen_, GREEN, block, 1)
     pygame.display.flip()
     return
+
+
+def create_bomb():
+    bomb_ = pygame.image.load("mine.png")
+    bomb = pygame.transform.scale(bomb_, BOMB_SIZE)
+    return bomb
 
 
 game_grid = []
@@ -49,12 +41,6 @@ game_grid = create_game_grid(game_grid)
 # also do not forget the time limit - just 1 second.
 
 
-def create_bomb():
-    bomb_ = pygame.image.load("mine.png")
-    bomb = pygame.transform.scale(bomb_, BOMB_SIZE)
-    return bomb
-
-
 def append_bomb(matrix):
     for i in range(20):
         row = random.randint(0, 25)
@@ -63,13 +49,19 @@ def append_bomb(matrix):
     return matrix
 
 
-def display_bomb(matrix, screen_):
+def display_bomb(screen_):
+    matrix = append_bomb(game_grid)
     net_screen = show_net(screen_, SQUARE)
+    bomb = create_bomb()
     for row in range(len(matrix)):
         for col in range(len(matrix[row])):
             cell = matrix[row][col]
             if cell == "bomb":
-                a = 3
+                x = SQUARE * col
+                y = SQUARE * row
+                cord = (x, y)
+                net_screen.blit(bomb, cord)
+    return screen_
 
 
 
